@@ -9,3 +9,4 @@ export function getInitialData() {
         questions,
     }))
 }
+

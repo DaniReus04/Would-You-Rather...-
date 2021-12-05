@@ -1,11 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export default function useQuestionBox() {
+function useQuestionBox(props) {
   return (
     <div>
       <ul>
-        <li>Question Box</li>
+        
       </ul>
     </div>
   );
 }
+
+function mapStateToProps({ questions }) {
+  return {
+  };
+}
+
+export default connect(mapStateToProps)(useQuestionBox);
