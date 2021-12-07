@@ -7,13 +7,9 @@ function Home(props) {
     <>
       <h2>Questions</h2>
       <ul>
-        {props.questionsIds.map((item) => (
-          <li key={item.id}>
-            <QuestionBox
-              id={item.id}
-              optionOne={item.optionOne}
-              optionTwo={item.optionTwo}
-            />
+        {props.questionsIds.map((id) => (
+          <li key={id}>
+            <QuestionBox id={id} />
           </li>
         ))}
       </ul>
