@@ -12,7 +12,7 @@ function leaderboard(props) {
 
 function mapStateToProps({ users }) {
   return{ 
-    userId: Object.keys(users) 
+    userId: Object.keys(users)
   }
 }
 export default connect(mapStateToProps)(leaderboard);

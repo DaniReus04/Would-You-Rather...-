@@ -2,13 +2,16 @@ import React from 'react';
 import { connect } from "react-redux";
 
 function userboard(props) {
-  return <div>{props.usersList.name}</div>;
+  const users = props.usersList
+  const { answers } = users
+  const count = Object.keys(answers).length
+  console.log("answers:", count)
+  return <div>{props.usersList.name}: {count}</div>;
 }
 
 function mapStateToProps({ users }, { id }){
-  console.log("id:", id)
   const user = users[id]
-  console.log("user:", user)
+  
  return{
    usersList: user,
  }
