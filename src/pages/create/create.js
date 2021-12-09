@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
 
 function create() {
-  return <div />;
+  return <div>Create session</div>;
 }
 
-export default create;
+function mapStateToProps({ users }){
+ return{}
+}
+
+export default connect(mapStateToProps)(create);

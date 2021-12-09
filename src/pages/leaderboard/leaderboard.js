@@ -1,7 +1,11 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
 
-function leaderboard() {
-  return <div />;
+function leaderboard(props) {
+  return <div>{props.users.id}</div>;
 }
 
-export default leaderboard;
+function mapStateToProps({ users }) {
+  return{ users }
+}
+export default connect(mapStateToProps)(leaderboard);
