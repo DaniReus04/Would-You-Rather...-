@@ -3,7 +3,7 @@ import boy1 from "../utils/boy1.jpeg";
 import boy2 from "../utils/boy2.jpeg";
 
 let users = {
-  sarahedo: {
+  "sarahedo": {
     id: 'sarahedo',
     name: 'Sarah Edo',
     avatarURL: girl1,
@@ -15,7 +15,7 @@ let users = {
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
-  tylermcginnis: {
+  "tylermcginnis": {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
     avatarURL: boy2,
@@ -25,7 +25,7 @@ let users = {
     },
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
-  johndoe: {
+  "johndoe": {
     id: 'johndoe',
     name: 'John Doe',
     avatarURL: boy1,
