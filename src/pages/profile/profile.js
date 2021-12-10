@@ -1,9 +1,9 @@
 function profile() {
-    return(
-        <div>
-            Profile Session
-        </div>
-    )
+  return (
+    <div>
+      <h2>Profile Session</h2>
+    </div>
+  );
 }
 
 export default profile;

@@ -2,11 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 
 function create() {
-  return <div>Create session</div>;
+  return (
+    <div>
+      <h2>Create session</h2>
+    </div>
+  );
 }
 
-function mapStateToProps({ users }){
- return{}
+function mapStateToProps({ users }) {
+  return {};
 }
 
 export default connect(mapStateToProps)(create);
