@@ -10,3 +10,15 @@ export function getInitialData() {
     }))
 }
 
+export function formatQuestion(question, author){
+    const {id, optionOne, optionTwo} = question
+    const {name, avatarURL} = author
+
+    return {
+        id,
+        name,
+        avatarURL,
+        textOne: optionOne.text,
+        textTwo: optionTwo.text
+    }
+}

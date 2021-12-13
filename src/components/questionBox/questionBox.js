@@ -1,24 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
+import { formatQuestion } from "../../data/api";
 
 function useQuestionBox(props) {
   const question = props.question;
 
-  const { author, optionOne, optionTwo } = question;
+  const { name, avatarURL, textOne, textTwo } = question;
   return (
     <form>
-      <div>{author}</div>
-      <button onClick={(e) => e.preventDefault()}>{optionOne.text}</button>
-      <button onClick={(e) => e.preventDefault()}>{optionTwo.text}</button>
+      <div>{name}</div>
+      <img src={avatarURL} alt={name} />
+      <button onClick={(e) => e.preventDefault()}>{textOne}</button>
+      <button onClick={(e) => e.preventDefault()}>{textTwo}</button>
     </form>
   );
 }
 
-function mapStateToProps({ questions }, { id }) {
+function mapStateToProps({ questions, users }, { id }) {
   const question = questions[id];
 
   return {
-    question: question,
+    question: formatQuestion(question, users[question.author]),
   };
 }
 
