@@ -17,7 +17,7 @@ function Home(props) {
   );
 }
 
-function mapStateToProps({ questions, users }) {
+function mapStateToProps({ questions }) {
   return {
     questionsIds: Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
