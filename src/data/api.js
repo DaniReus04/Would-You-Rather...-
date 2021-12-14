@@ -21,3 +21,15 @@ export function formatQuestion(question, author) {
     textTwo: optionTwo.text,
   };
 }
+
+export function formatLeaderboard(user){
+  const {answers, questions, id, name, avatarURL } = user
+
+  return{
+    id,
+    name,
+    avatarURL,
+    answer: answers.length,
+    questions: questions.length, 
+  }
+}

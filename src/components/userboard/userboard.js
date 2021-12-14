@@ -1,14 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import { formatLeaderboard } from "../../data/api"
 
 function userboard(props) {
-  const users = props.usersList;
-  const { answers } = users;
-  const count = Object.keys(answers).length;
-
+  const user = props.user
+  const {name, avatarURL, answer, questions} = user
   return (
     <div>
-      {props.usersList.name}: {count}
+      <figure><img src={avatarURL} alt={name} /></figure>
+      <p>Answers: {answer}</p>
+      <p>Questions: {questions}</p>
+      <p>Total: </p>
     </div>
   );
 }
@@ -17,7 +19,7 @@ function mapStateToProps({ users }, { id }) {
   const user = users[id];
 
   return {
-    usersList: user,
+    user: formatLeaderboard(user),
   };
 }
 
