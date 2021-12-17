@@ -15,10 +15,11 @@ const Loader = () => {
           alignItems: "center",
           alignContent: "center",
           fontSize: 25,
+          fontStyle: "italic",
           color: "black",
         }}
       >
-        ...loading
+        Loading
       </div>
     );
   };

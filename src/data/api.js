@@ -33,3 +33,11 @@ export function formatLeaderboard(user){
     questions: questions.length, 
   }
 }
+
+export function saveLoggedUser(logged){
+  const { id } = logged
+
+  return{
+    id
+  }
+}

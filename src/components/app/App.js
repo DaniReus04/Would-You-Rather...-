@@ -1,24 +1,37 @@
-import { Provider } from "react-redux";
 import store from "../../store/store";
 import Create from "../../pages/create/create";
 import Leaderboard from "../../pages/leaderboard/leaderboard";
 import Profile from "../../pages/profile/profile";
 import Home from "../../pages/home/home";
+import Loading from "../loading/loading";
 import { handleInitialData } from "../../actions/shared";
 import { useEffect } from "react";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
   useEffect(() => {
-    store.dispatch(handleInitialData())
-  })
+    store.dispatch(handleInitialData());
+  });
   return (
-    <Provider store={store}>
-      <Home/>
-      <Create/>
-      <Leaderboard/>
-      <Profile/>
-    </Provider>
+    <>
+      {props.logged === null ? (
+        <Loading />
+      ) : (
+        <div>
+          <Home />
+          <Create />
+          <Leaderboard />
+          <Profile />
+        </div>
+      )}
+    </>
   );
 }
 
-export default (App);
+function mapStateToProps({ logged }) {
+  return {
+    logged: logged,
+  };
+}
+
+export default connect(mapStateToProps)(App);
