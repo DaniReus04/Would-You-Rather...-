@@ -1,8 +1,8 @@
-export const RECEIVE_LOGGED = "RECEIVE_LOGGED";
+export const SET_LOGGED = "SET_LOGGED";
 
 export function receiveLogged(id) {
   return {
-    type: RECEIVE_LOGGED,
+    type: SET_LOGGED,
     id,
   };
 }

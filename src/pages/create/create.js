@@ -8,9 +8,9 @@ function create() {
       <h3>Let's create a question</h3>
       <div>
         <p>Would you rather?</p>  
-        <p><input type="text" value="text" placeholder="Option One"></input></p>
+        <p><input type="text" placeholder="Option One"></input></p>
         <p>Or</p>
-        <p><input type="text" value="text" placeholder="Option Two"></input></p>
+        <p><input type="text" placeholder="Option Two"></input></p>
       </div>
     </div>
   );
