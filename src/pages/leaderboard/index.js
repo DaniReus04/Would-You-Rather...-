@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import UserBoard from "../../components/userboard/userboard";
+import UserBoard from "../../components/userboard";
 
 function leaderboard(props) {
   return (

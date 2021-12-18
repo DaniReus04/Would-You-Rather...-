@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import QuestionBox from "../../components/questionBox/questionBox";
+import QuestionBox from "../../components/questionBox";
 
 function Home(props) {
   return (
