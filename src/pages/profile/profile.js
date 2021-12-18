@@ -4,7 +4,7 @@ function profile(props) {
   console.log("props:", props)
   return (
     <div>
-      <h2>Profile Session</h2>
+      <h2>Profile Information</h2>
       <form>
         <h3>Welcome user</h3>
         <p>Already have an acount? Login here</p>

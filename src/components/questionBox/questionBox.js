@@ -7,12 +7,19 @@ function useQuestionBox(props) {
 
   const { name, avatarURL, textOne, textTwo } = question;
   return (
-    <form>      
-      <figure><img src={avatarURL} alt={name} /></figure>
+    <form>
+      <figure>
+        <img src={avatarURL} alt={name} style={{ width: "30px" }} />
+      </figure>
       <div>
         <p>{name} asks you what do you rather? </p>
-        <p><button onClick={(e) => e.preventDefault()}>{textOne}</button></p>
-        <p><button onClick={(e) => e.preventDefault()}>{textTwo}</button></p>
+        <p>
+          <button onClick={(e) => e.preventDefault()}>{textOne}</button>
+        </p>
+        <p>Or</p>
+        <p>
+          <button onClick={(e) => e.preventDefault()}>{textTwo}</button>
+        </p>
       </div>
     </form>
   );

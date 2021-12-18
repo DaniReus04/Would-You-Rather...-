@@ -5,7 +5,7 @@ import UserBoard from "../../components/userboard/userboard";
 function leaderboard(props) {
   return (
     <div>
-      <h2>Leaderboard Session</h2>
+      <h2>Leaderboard</h2>
       <ul>
         {props.userId.map((id) => (
           <li key={id}>
