@@ -10,9 +10,8 @@ function useProfile() {
 
   return (
     <div>
-      <h2>Profile Information</h2>
-      <h3>Welcome user</h3>
-      <p>Already have an acount? Login here</p>
+      <h2>Welcome user</h2>
+      <h3>Please choose an account!</h3>
         <select value="" onChange={onChange}>
           <option>Who are you?</option>
           <option value="tylermcginnis">Tyler McGinnis</option>
