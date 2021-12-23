@@ -9,7 +9,7 @@ function useProfile() {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100">
       <h2>Welcome user</h2>
       <h3>Please choose an account!</h3>
         <select value="" onChange={onChange}>
