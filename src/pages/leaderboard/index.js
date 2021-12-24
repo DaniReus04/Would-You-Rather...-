@@ -4,15 +4,17 @@ import UserBoard from "../../components/userboard";
 
 function leaderboard(props) {
   return (
-    <div>
-      <h2>Leaderboard</h2>
-      <ul>
+    <div className="grid items-center justify-center py-8">
+      <div className="bg-neutral-100 px-16 py-4 rounded-lg shadow-md shadow-white">
+      <h2 className="font-bold text-lg">Leaderboard</h2>
+      <ul className="py-4">
         {props.userId.map((id) => (
           <li key={id}>
             <UserBoard id={id} />
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }

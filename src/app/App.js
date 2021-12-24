@@ -4,6 +4,7 @@ import Leaderboard from "../pages/leaderboard";
 import LogIn from "../pages/logIn";
 import Home from "../pages/home";
 //import Loading from "../components/loading/loading";
+import Header from "../components/header";
 import { handleInitialData } from "../actions/shared";
 import { useEffect } from "react";
 import { connect } from "react-redux";
@@ -19,7 +20,8 @@ function App({ authedUser }) {
           <LogIn />
         </div>
       ) : (
-        <div>
+        <div className="bg-zinc-900">
+          <Header />
           <Home />
           <Create />
           <Leaderboard />
