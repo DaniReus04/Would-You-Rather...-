@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 function create() {
   return (
-    <div className="grid items-center justify-center py-8">
+    <div className="grid items-center justify-center py-28">
       <div className="bg-neutral-100 px-12 py-4 rounded-lg shadow-md shadow-white">
         <h2 className="flex justify-center font-bold text-lg">
           Create question

@@ -4,7 +4,7 @@ import UserBoard from "../../components/userboard";
 
 function leaderboard(props) {
   return (
-    <div className="grid items-center justify-center py-8">
+    <div className="grid items-center justify-center py-16">
       <div className="bg-neutral-100 px-16 py-4 rounded-lg shadow-md shadow-white">
       <h2 className="font-bold text-lg">Leaderboard</h2>
       <ul className="py-4">

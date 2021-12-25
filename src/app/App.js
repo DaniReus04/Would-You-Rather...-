@@ -1,4 +1,5 @@
-//import { Route } from "react-router-dom";
+import { Fragment } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import store from "../store/store";
 import Create from "../pages/create";
 import Leaderboard from "../pages/leaderboard";
@@ -21,12 +22,18 @@ function App({ authedUser }) {
           <LogIn />
         </div>
       ) : (
-        <div className="bg-zinc-900">
-          <Header />
-          <Home />
-          <Create />
-          <Leaderboard />
-        </div>
+        <Router>
+          <Fragment>
+          <div className="min-h-screen bg-zinc-900">
+            <Header />
+            <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/leaderboard" element={<Leaderboard />} />
+            </Routes>
+          </div>  
+          </Fragment>
+        </Router>
       )}
     </>
   );
