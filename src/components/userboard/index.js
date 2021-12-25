@@ -5,7 +5,7 @@ import { formatLeaderboard } from "../../data/api";
 function userboard(props) {
   const user = props.user;
   const { name, avatarURL, answer, questions } = user;
-  const total = [answer+questions];
+  const overall = [answer+questions];
   return (
     <>
     <form className="flex divide-x-2 py-1">
@@ -16,7 +16,7 @@ function userboard(props) {
       <div className="px-4 py-4">
       <p>Answers: {answer}</p>
       <p className="py-1">Questions: {questions}</p>
-      <p className="font-semibold py-5">Total: {total}</p>
+      <p className="font-semibold py-5">Overall: {overall}</p>
       </div>
     </form>
     </>
