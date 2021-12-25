@@ -6,19 +6,22 @@ function userboard(props) {
   const user = props.user;
   const { name, avatarURL, answer, questions } = user;
   return (
-    <div>
+    <form className="flex divide-x-2 py-2">
       <figure>
-        <img src={avatarURL} alt={name} style={{ width: "30px" }} />
+        <img src={avatarURL} alt={name} className="w-28 px-4" />
       </figure>
+      <div className="px-4">
       <p>Answers: {answer}</p>
-      <p>Questions: {questions}</p>
-      <p>Total: </p>
-    </div>
+      <p className="py-1">Questions: {questions}</p>
+      <p className="font-semibold">Total: </p>
+      </div>
+    </form>
   );
 }
 
 function mapStateToProps({ users }, { id }) {
   const user = users[id];
+  console.log("user:", user)
 
   return {
     user: formatLeaderboard(user),
