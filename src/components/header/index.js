@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function header() {
   return (
     <div className="flex justify-around py-1">
-      <div className="bg-neutral-100 rounded-xl h-8 w-1/2 px-6 ">
+      <div className="bg-neutral-100 rounded-xl h-8 w-1/2 px-6  shadow-sm shadow-white">
         <div className="flex justify-evenly py-1">
           <Link to="/">
             <button className="font-semibold">Home</button>
