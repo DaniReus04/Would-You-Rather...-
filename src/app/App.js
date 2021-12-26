@@ -5,7 +5,6 @@ import Create from "../pages/create";
 import Leaderboard from "../pages/leaderboard";
 import LogIn from "../pages/logIn";
 import Home from "../pages/home";
-//import Loading from "../components/loading/loading";
 import Header from "../components/header";
 import { handleInitialData } from "../actions/shared";
 import { useEffect } from "react";

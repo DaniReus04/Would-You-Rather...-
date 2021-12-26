@@ -1,5 +1,6 @@
+import { saveQuestion } from "../data/api";
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
-export const CREATE_QUESTIONS = "CREATE_QUESTIONS";
+export const CREATE_QUESTION = "CREATE_QUESTION";
 
 export function receiveQuestion(questions) {
   return {
@@ -8,10 +9,17 @@ export function receiveQuestion(questions) {
   };
 }
 
-export function createQuestions(id, user) {
+export function addQuestion(question) {
   return {
-    type: CREATE_QUESTIONS,
-    id,
-    user,
+    type: CREATE_QUESTION,
+    question,
+  };
+}
+
+export function newQuestion(question) {
+  return (dispatch) => {
+    return saveQuestion(question).then((question) =>
+      dispatch(addQuestion(question))
+    );
   };
 }
