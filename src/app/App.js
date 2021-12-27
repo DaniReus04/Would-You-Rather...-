@@ -6,6 +6,7 @@ import Leaderboard from "../pages/leaderboard";
 import LogIn from "../pages/logIn";
 import Home from "../pages/home";
 import Header from "../components/header";
+import Question from "../pages/question";
 import { handleInitialData } from "../actions/shared";
 import { useEffect } from "react";
 import { connect } from "react-redux";
@@ -30,6 +31,7 @@ function App({ authedUser }) {
               <Route path="/create" element={<Create />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
             </Routes>
+            <Question/>
           </div>  
           </Fragment>
         </Router>
