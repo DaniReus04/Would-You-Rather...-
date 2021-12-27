@@ -19,6 +19,8 @@ export function formatQuestion(question, author) {
     avatarURL,
     textOne: optionOne.text,
     textTwo: optionTwo.text,
+    votesOne: optionOne.votes,
+    votesTwo: optionTwo.votes,
   };
 }
 
@@ -29,8 +31,8 @@ export function formatLeaderboard(user){
     id,
     name,
     avatarURL,
-    answer: answers.length,
-    questions: questions.length, 
+    answer: Object.values(answers).length,
+    questions: questions.length,
   }
 }
 

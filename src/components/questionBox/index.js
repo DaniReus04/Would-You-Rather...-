@@ -6,6 +6,7 @@ function useQuestionBox(props) {
   const question = props.question;
 
   const { name, avatarURL, textOne, textTwo } = question;
+
   return (
     <form className="flex divide-x-2 rounded-sm border-neutral-200">
       <figure>
