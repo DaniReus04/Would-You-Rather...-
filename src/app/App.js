@@ -6,7 +6,7 @@ import Leaderboard from "../pages/leaderboard";
 import LogIn from "../pages/logIn";
 import Home from "../pages/home";
 import Header from "../components/header";
-import Question from "../pages/question";
+import Question from "../pages/questionPage";
 import { handleInitialData } from "../actions/shared";
 import { useEffect } from "react";
 import { connect } from "react-redux";
@@ -24,15 +24,15 @@ function App({ authedUser }) {
       ) : (
         <Router>
           <Fragment>
-          <div className="min-h-screen bg-zinc-900">
-            <Header />
-            <Routes>
-              <Route path="/" exact element={<Home />} />
-              <Route path="/create" element={<Create />} />
-              <Route path="/leaderboard" element={<Leaderboard />} />
-            </Routes>
-            <Question/>
-          </div>  
+            <div className="min-h-screen bg-zinc-900">
+              <Header />
+              <Routes>
+                <Route path="/" exact element={<Home />} />
+                <Route path="/create" element={<Create />} />
+                <Route path="/leaderboard" element={<Leaderboard />} />
+                <Route path="/:id" element={<Question/>} />
+              </Routes>
+            </div>
           </Fragment>
         </Router>
       )}

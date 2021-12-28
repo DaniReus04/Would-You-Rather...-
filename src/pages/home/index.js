@@ -13,7 +13,7 @@ function Home(props) {
       <div className="flex justify-around py-3">
         <div className="bg-neutral-100 rounded-xl h-8 w-72 px-6 shadow-sm shadow-white">
           <div className="flex items-center py-1">
-          <div className="px-2">
+            <div className="px-2">
               <button
                 onClick={showUnAnsweredQuestions}
                 className="text-white shadow-sm rounded-md shadow-slate-600 px-2 bg-neutral-600"
@@ -34,16 +34,15 @@ function Home(props) {
       </div>
       <div className="grid items-start justify-center py-4">
         <div className="bg-neutral-100 px-12 py-4 rounded-xl shadow-md shadow-white">
-          <h2 className="flex font-bold justify-center text-lg">Questions</h2>
           <ul className="divide-y-2" id="questions">
             {questions === false
               ? props.Answered.map((id) => (
-                  <li key={id} className="py-6">
+                  <li key={id}>
                     <QuestionBox id={id} />
                   </li>
                 ))
               : props.noAnswer.map((id) => (
-                  <li key={id} className="py-6">
+                  <li key={id}>
                     <QuestionBox id={id} />
                   </li>
                 ))}
