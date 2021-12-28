@@ -28,9 +28,9 @@ function App({ authedUser }) {
               <Header />
               <Routes>
                 <Route path="/" exact element={<Home />} />
-                <Route path="/create" element={<Create />} />
+                <Route path="/add" element={<Create />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
-                <Route path="/:id" element={<Question/>} />
+                <Route path="/questions/:id" element={<Question/>} />
               </Routes>
             </div>
           </Fragment>

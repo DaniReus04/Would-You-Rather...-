@@ -16,18 +16,21 @@ function useHeader() {
           <Link to="/">
             <button className="font-semibold">Home</button>
           </Link>
-          <Link to="/create">
+          <Link to="/add">
             <button className="font-semibold">Create</button>
           </Link>
           <Link to="/leaderboard">
             <button className="font-semibold">Leaderboard</button>
           </Link>
+          <Link to="/">
           <button onClick={onClick} value={null} className="text-white shadow-md rounded-md shadow-slate-600 px-2 bg-neutral-600">
             LogOut
           </button>
+          </Link>
         </div>
       </div>
     </div>
+    /* Fazer um segundo header identico, mostrando o usuario logado (nome e foto) */
   );
 }
 

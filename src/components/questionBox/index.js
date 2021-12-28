@@ -28,7 +28,7 @@ function useQuestionBox(props) {
           </p>
           <p className="flex justify-center py-2">Or</p>
           <p className="flex justify-center">
-            <Link to={`${id}`} className="text-white shadow-md rounded-md shadow-slate-600 px-4 py-1 bg-neutral-600">
+            <Link to={`/questions/${id}`} className="text-white shadow-md rounded-md shadow-slate-600 px-4 py-1 bg-neutral-600">
               Show more
             </Link >
           </p>
