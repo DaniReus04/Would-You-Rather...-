@@ -26,20 +26,20 @@ export function newQuestion(question) {
   };
 }
 
-export function addAnswer(authedUser, questionId, answer) {
+export function addAnswer(authedUser, qid, answer) {
   return {
     type: RECEIVE_ANSWER,
+    qid,
     authedUser,
-    questionId,
     answer,
   };
 }
 
-export function newAnswer(authedUser, questionId, answered) {
+export function newAnswer(authedUser, qid, answer) {
   return (dispatch) => {
-    return saveQuestionAnswer(authedUser, questionId, answered).then(
+    return saveQuestionAnswer(authedUser, qid, answer).then(
       (answer) => {
-        dispatch(addAnswer(authedUser, questionId, answered));
+        dispatch(addAnswer(authedUser, qid, answer));
       }
     );
   };

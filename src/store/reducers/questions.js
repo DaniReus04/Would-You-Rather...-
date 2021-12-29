@@ -17,11 +17,11 @@ export default function questions(state = {}, action) {
     case RECEIVE_ANSWER:
       return {
         ...state,
-        [action.questionId]: {
-          ...state[action.questionId],
+        [action.qid]: {
+          ...state[action.qid],
           [action.answer]: {
-            ...state[action.questionId][action.answer],
-            votes: state[action.questionId][action.answer].votes.concat([action.authedUser]),
+            ...state[action.qid][action.answer],
+            votes: [...state[action.qid][action.answer].votes.concat([action.authedUser])],
           },
         },
       };

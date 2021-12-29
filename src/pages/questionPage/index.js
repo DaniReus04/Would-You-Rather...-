@@ -15,9 +15,11 @@ function useQuestionPage() {
   /*Hooks above */
 
   const questionId = question[id];
+  const qid = questionId.id;
   //const answer = user.answers[question.id]
   const questionDetails = formatQuestion(questionId, users[questionId.author]);
   const { avatarURL, name, textOne, textTwo } = questionDetails;
+  console.log("qid:", qid, "authedUser:", authedUser, "question:", question);
 
   const option = (e) => {
     setTarget(e.target.value)
@@ -25,9 +27,9 @@ function useQuestionPage() {
 
   const onAnswer = (e) => {
     e.preventDefault()
-    const answered = target
+    const answer = target
 
-    dispatch(newAnswer({authedUser, questionId, answered}))
+    dispatch(newAnswer({authedUser, qid, answer}))
   }
 
   return (
