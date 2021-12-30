@@ -10,7 +10,7 @@ function useQuestionPage() {
   const users = useSelector((state) => state.users);
   const authedUser = useSelector((state) => state.authedUser);
   const dispatch = useDispatch();
-  const [ target, setTarget ] = useState("");
+  const [target, setTarget] = useState("");
 
   /*Hooks above */
 
@@ -22,22 +22,25 @@ function useQuestionPage() {
   console.log("qid:", qid, "authedUser:", authedUser, "question:", question);
 
   const option = (e) => {
-    setTarget(e.target.value)
-  }
+    setTarget(e.target.value);
+  };
 
   const onAnswer = (e) => {
-    e.preventDefault()
-    const answer = target
+    e.preventDefault();
+    const answer = target;
 
-    dispatch(newAnswer({authedUser, qid, answer}))
-  }
+    dispatch(newAnswer({ authedUser, qid, answer }));
+  };
 
   return (
     <div className="grid items-start justify-center py-40">
       <div className="bg-neutral-100 px-4 py-4 rounded-xl shadow-md shadow-white">
         <>
           <div>
-            <form className="flex divide-x-2 rounded-sm border-neutral-200" onSubmit={onAnswer}>
+            <form
+              className="flex divide-x-2 rounded-sm border-neutral-200"
+              onSubmit={onAnswer}
+            >
               <figure className="px-4">
                 <img src={avatarURL} alt={name} className="w-28 px-2" />
               </figure>

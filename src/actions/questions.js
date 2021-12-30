@@ -35,12 +35,10 @@ export function addAnswer(authedUser, qid, answer) {
   };
 }
 
-export function newAnswer(authedUser, qid, answer) {
+export function newAnswer(info) {
   return (dispatch) => {
-    return saveQuestionAnswer(authedUser, qid, answer).then(
-      (answer) => {
-        dispatch(addAnswer(authedUser, qid, answer));
-      }
-    );
+    return saveQuestionAnswer(info).then(() => {
+      dispatch(addAnswer(info));
+    });
   };
 }
