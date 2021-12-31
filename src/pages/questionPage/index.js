@@ -35,6 +35,8 @@ function useQuestionPage() {
 
   const totalVotes =
     questionDetails.votesOne.length + questionDetails.votesTwo.length;
+  const oneVotes = questionDetails.votesOne.length;
+  const twoVotes = questionDetails.votesTwo.length;
   const totalOne = (questionDetails.votesOne.length / totalVotes) * 100;
   const totalTwo = (questionDetails.votesTwo.length / totalVotes) * 100;
 
@@ -85,7 +87,7 @@ function useQuestionPage() {
                                     disabled
                                     className="text-white shadow-md rounded-md shadow-slate-600 min-w-full bg-gray-900"
                                   >
-                                    {textOne} / {totalOne.toFixed(1)}% votes
+                                    {textOne} / {totalOne.toFixed(1)}% out of {oneVotes} votes
                                   </button>
                                 </p>
                                 <p className="flex justify-center text-lg font-semibold">
@@ -99,7 +101,7 @@ function useQuestionPage() {
                                     disabled
                                     className="text-white shadow-md rounded-md shadow-slate-600 min-w-full bg-neutral-600"
                                   >
-                                    {textOne} / {totalOne.toFixed(1)}% votes
+                                    {textOne} / {totalOne.toFixed(1)}% out of {oneVotes} votes
                                   </button>
                                 </p>
                               </>
@@ -114,7 +116,7 @@ function useQuestionPage() {
                                     disabled
                                     className="text-white shadow-md rounded-md shadow-slate-600 min-w-full bg-gray-900"
                                   >
-                                    {textTwo} / {totalTwo.toFixed(1)}% votes
+                                    {textTwo} / {totalTwo.toFixed(1)}% out of {twoVotes} votes
                                   </button>
                                 </p>
                               </>
@@ -124,7 +126,7 @@ function useQuestionPage() {
                                   disabled
                                   className="text-white shadow-md rounded-md shadow-slate-600 min-w-full bg-neutral-600"
                                 >
-                                  {textTwo} / {totalTwo.toFixed(1)}% votes
+                                  {textTwo} / {totalTwo.toFixed(1)}% out of {twoVotes} votes
                                 </button>
                               </p>
                             )}

@@ -36,7 +36,8 @@ function Home(props) {
       </div>
       <div className="grid items-start justify-center py-4">
         <div className="bg-neutral-100 px-12 py-4 rounded-xl shadow-md shadow-white">
-          <ul className="divide-y-2" id="questions">
+          <h2 className="flex justify-center font-semibold text-xl">Questions</h2>
+          <ul className="divide-y-2 py-2" id="questions">
             {questions === false
               ? props.Answered.map((id) => (
                   <li key={id}>
