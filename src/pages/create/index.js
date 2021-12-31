@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { newQuestion } from "../../actions/questions";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
+import Header from "../../components/header";
 
 function useCreate(props) {
   const [create, setCreate] = useState(false);
@@ -29,6 +30,8 @@ function useCreate(props) {
     );
   }
   return (
+    <>
+    <Header/>
     <div className="grid items-center justify-center py-28">
       <div className="bg-neutral-100 px-12 py-4 rounded-lg shadow-md shadow-white h-64">
         <h2 className="flex justify-center font-bold text-lg">
@@ -64,6 +67,7 @@ function useCreate(props) {
         </form>
       </div>
     </div>
+    </>
   );
 }
 

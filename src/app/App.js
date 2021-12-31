@@ -5,8 +5,8 @@ import Create from "../pages/create";
 import Leaderboard from "../pages/leaderboard";
 import LogIn from "../pages/logIn";
 import Home from "../pages/home";
-import Header from "../components/header";
 import Question from "../pages/questionPage";
+import PageNotFound from "../pages/404";
 import { handleInitialData } from "../actions/shared";
 import { useEffect } from "react";
 import { connect } from "react-redux";
@@ -23,12 +23,12 @@ function App({ authedUser }) {
         <Router>
           <Fragment>
             <div className="min-h-screen bg-zinc-900">
-              <Header />
               <Routes>
                 <Route path="/" exact element={<Home />} />
                 <Route path="/add" element={<Create />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/questions/:id" element={<Question />} />
+                <Route element={<PageNotFound />} />
               </Routes>
             </div>
           </Fragment>

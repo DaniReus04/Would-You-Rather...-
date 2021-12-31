@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { connect } from "react-redux";
 import QuestionBox from "../../components/questionBox";
+import Header from "../../components/header";
 
 function Home(props) {
   const [questions, setQuestions] = useState(true);
@@ -10,6 +11,7 @@ function Home(props) {
 
   return (
     <>
+    <Header/>
       <div className="flex justify-around py-3">
         <div className="bg-neutral-100 rounded-xl h-8 w-72 px-6 shadow-sm shadow-white">
           <div className="flex items-center py-1">

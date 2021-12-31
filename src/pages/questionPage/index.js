@@ -4,7 +4,8 @@ import { formatQuestion } from "../../data/api";
 import { useParams } from "react-router-dom";
 import { newAnswer } from "../../actions/questions";
 import Loading from "../../components/loading";
-
+import PageNotFound from "../404";
+import Header from "../../components/header";
 
 function useQuestionPage() {
   const { id } = useParams();
@@ -17,6 +18,13 @@ function useQuestionPage() {
 
   /*Hooks above */
 
+  if (question[id] === undefined) {
+    return (
+      <div>
+        <PageNotFound />
+      </div>
+    );
+  }
   const questionId = question[id];
   const qid = questionId.id;
   //const answer = user.answers[question.id]
@@ -31,15 +39,18 @@ function useQuestionPage() {
     e.preventDefault();
     const answer = target;
 
-    setLoader(true);  
+    setLoader(true);
     dispatch(newAnswer({ authedUser, qid, answer }));
     setTimeout(() => {
-      setLoader(false)
-    }, 500)
+      setLoader(false);
+    }, 500);
   };
 
+  console.log("qid:", qid, "questionId:", questionId, "id:", id);
+
   return (
-    
+    <>
+    <Header />
     <div className="grid items-start justify-center py-40">
       <div className="bg-neutral-100 px-4 py-4 rounded-xl shadow-md shadow-white">
         <>
@@ -52,34 +63,36 @@ function useQuestionPage() {
                 <img src={avatarURL} alt={name} className="w-28 px-2" />
               </figure>
               <div className="px-4">
-                {loader ? <Loading/> : (
+                {loader ? (
+                  <Loading />
+                ) : (
                   <>
-                  <h2 className="font-bold">
-                  {name} asks you what do you rather?
-                </h2>
-                <div className="py-1">
-                  <p className="flex justify-center">
-                    <button
-                      onClick={option}
-                      className="text-white shadow-md rounded-md shadow-slate-600 min-w-full bg-neutral-600"
-                      value="optionOne"
-                      name="answer"
-                    >
-                      {textOne}
-                    </button>
-                  </p>
-                  <p className="flex justify-center">Or</p>
-                  <p className="flex justify-center">
-                    <button
-                      onClick={option}
-                      className="text-white shadow-md rounded-md shadow-slate-600 min-w-full bg-neutral-600"
-                      value="optionTwo"
-                      name="answer"
-                    >
-                      {textTwo}
-                    </button>
-                  </p>
-                </div>
+                    <h2 className="font-bold">
+                      {name} asks you what do you rather?
+                    </h2>
+                    <div className="py-1">
+                      <p className="flex justify-center">
+                        <button
+                          onClick={option}
+                          className="text-white shadow-md rounded-md shadow-slate-600 min-w-full bg-neutral-600"
+                          value="optionOne"
+                          name="answer"
+                        >
+                          {textOne}
+                        </button>
+                      </p>
+                      <p className="flex justify-center">Or</p>
+                      <p className="flex justify-center">
+                        <button
+                          onClick={option}
+                          className="text-white shadow-md rounded-md shadow-slate-600 min-w-full bg-neutral-600"
+                          value="optionTwo"
+                          name="answer"
+                        >
+                          {textTwo}
+                        </button>
+                      </p>
+                    </div>
                   </>
                 )}
               </div>
@@ -88,6 +101,7 @@ function useQuestionPage() {
         </>
       </div>
     </div>
+    </>
   );
 }
 
