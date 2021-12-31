@@ -18,9 +18,7 @@ function App({ authedUser }) {
   return (
     <>
       {!authedUser ? (
-        <div>
           <LogIn />
-        </div>
       ) : (
         <Router>
           <Fragment>
@@ -30,7 +28,7 @@ function App({ authedUser }) {
                 <Route path="/" exact element={<Home />} />
                 <Route path="/add" element={<Create />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
-                <Route path="/questions/:id" element={<Question/>} />
+                <Route path="/questions/:id" element={<Question />} />
               </Routes>
             </div>
           </Fragment>

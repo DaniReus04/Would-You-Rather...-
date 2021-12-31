@@ -26,12 +26,10 @@ export function newQuestion(question) {
   };
 }
 
-export function addAnswer(authedUser, qid, answer) {
+export function addAnswer(action) {
   return {
     type: RECEIVE_ANSWER,
-    qid,
-    authedUser,
-    answer,
+    payload: action,
   };
 }
 

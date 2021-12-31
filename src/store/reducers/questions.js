@@ -15,15 +15,20 @@ export default function questions(state = {}, action) {
         [action.question.id]: action.question,
       };
     case RECEIVE_ANSWER:
+      console.log("action:", action);
       return {
         ...state,
-        [action.qid]: {
-          ...state[action.qid],
-          [action.answer]: {
-            ...state[action.qid][action.answer],
-            votes: [...state[action.qid][action.answer].votes.concat([action.authedUser])]
-          }
-        }
+        [action.payload.qid]: {
+          ...state[action.payload.qid],
+          [action.payload.answer]: {
+            ...state[action.payload.qid][action.payload.answer],
+            votes: [
+              ...state[action.payload.qid][action.payload.answer].votes.concat([
+                action.payload.authedUser,
+              ]),
+            ],
+          },
+        },
       };
     default:
       return state;

@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { formatQuestion } from "../../data/api";
 import { useParams } from "react-router-dom";
 import { newAnswer } from "../../actions/questions";
+import Loading from "../../components/loading";
+
 
 function useQuestionPage() {
   const { id } = useParams();
@@ -11,6 +13,7 @@ function useQuestionPage() {
   const authedUser = useSelector((state) => state.authedUser);
   const dispatch = useDispatch();
   const [target, setTarget] = useState("");
+  const [loader, setLoader] = useState(false);
 
   /*Hooks above */
 
@@ -19,7 +22,6 @@ function useQuestionPage() {
   //const answer = user.answers[question.id]
   const questionDetails = formatQuestion(questionId, users[questionId.author]);
   const { avatarURL, name, textOne, textTwo } = questionDetails;
-  console.log("qid:", qid, "authedUser:", authedUser, "question:", question);
 
   const option = (e) => {
     setTarget(e.target.value);
@@ -29,10 +31,15 @@ function useQuestionPage() {
     e.preventDefault();
     const answer = target;
 
+    setLoader(true);  
     dispatch(newAnswer({ authedUser, qid, answer }));
+    setTimeout(() => {
+      setLoader(false)
+    }, 500)
   };
 
   return (
+    
     <div className="grid items-start justify-center py-40">
       <div className="bg-neutral-100 px-4 py-4 rounded-xl shadow-md shadow-white">
         <>
@@ -45,7 +52,9 @@ function useQuestionPage() {
                 <img src={avatarURL} alt={name} className="w-28 px-2" />
               </figure>
               <div className="px-4">
-                <h2 className="font-bold">
+                {loader ? <Loading/> : (
+                  <>
+                  <h2 className="font-bold">
                   {name} asks you what do you rather?
                 </h2>
                 <div className="py-1">
@@ -71,6 +80,8 @@ function useQuestionPage() {
                     </button>
                   </p>
                 </div>
+                  </>
+                )}
               </div>
             </form>
           </div>
