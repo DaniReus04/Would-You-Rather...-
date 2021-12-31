@@ -28,7 +28,7 @@ function App({ authedUser }) {
                 <Route path="/add" element={<Create />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/questions/:id" element={<Question />} />
-                <Route element={<PageNotFound />} />
+                <Route path="*" element={<PageNotFound />} />
               </Routes>
             </div>
           </Fragment>
