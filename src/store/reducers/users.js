@@ -1,5 +1,5 @@
 import { RECEIVE_USER } from "../../actions/users";
-import { RECEIVE_ANSWER } from "../../actions/questions";
+import { RECEIVE_ANSWER, CREATE_QUESTION } from "../../actions/questions";
 
 export default function users(state = {}, action) {
   switch (action.type) {
@@ -8,8 +8,19 @@ export default function users(state = {}, action) {
         ...state,
         ...action.user,
       };
+      case CREATE_QUESTION:
+        console.log("action:", action)
+        return{
+          ...state,
+          [action.question.author]:{
+            ...state[action.question.author],
+            questions: [
+              ...state[action.question.author].questions,
+              action.question.id
+            ]
+          }
+        }
     case RECEIVE_ANSWER:
-      console.log("action1:", action, state);
       return {
         ...state,
         [action.payload.authedUser]: {

@@ -46,8 +46,6 @@ function useQuestionPage() {
     }, 500);
   };
 
-  console.log("qid:", qid, "questionId:", questionId, "id:", id);
-
   return (
     <>
     <Header />

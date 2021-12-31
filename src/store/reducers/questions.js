@@ -15,7 +15,6 @@ export default function questions(state = {}, action) {
         [action.question.id]: action.question,
       };
     case RECEIVE_ANSWER:
-      console.log("action:", action);
       return {
         ...state,
         [action.payload.qid]: {

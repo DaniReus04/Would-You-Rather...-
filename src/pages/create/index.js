@@ -25,7 +25,6 @@ function useCreate(props) {
     return (
       <>
         <Navigate to="/"/>
-        {window.alert("To update leaderboard you will have to logIn again!")}
       </>
     );
   }
