@@ -6,6 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm install`
+
+Install all the depedencies for the project
+To read more about (https://www.npmjs.com/package/react).
+
 ### `npm start`
 
 Runs the app in the development mode.\
