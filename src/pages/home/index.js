@@ -1,10 +1,23 @@
 import { useState } from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import QuestionBox from "../../components/questionBox";
 import Header from "../../components/header";
 
-function Home(props) {
+function Home() {
   const [questions, setQuestions] = useState(true);
+  const stateQuestions = useSelector((state) => state.questions);
+  const users = useSelector((state) => state.users);
+  const authedUser = useSelector((state) => state.authedUser);
+
+  const user = users[authedUser];
+  const question = Object.keys(user.answers).sort(
+    (a, b) => stateQuestions[b].timestamp - stateQuestions[a].timestamp
+  ); 
+
+  const answered = question;
+  const noAnswer = Object.keys(stateQuestions)
+  .filter((question2) => question.indexOf(question2) < 0)
+  .sort((a, b) => stateQuestions[b].timestamp - stateQuestions[a].timestamp);
 
   const showAnsweredQuestions = () => setQuestions(false);
   const showUnAnsweredQuestions = () => setQuestions(true);
@@ -39,14 +52,14 @@ function Home(props) {
           <h2 className="flex justify-center font-semibold text-xl">Questions</h2>
           <ul className="divide-y-2 py-2" id="questions">
             {questions === false
-              ? props.Answered.map((id) => (
+              ? answered.map((id) => (
                   <li key={id}>
-                    <QuestionBox id={id} />
+                    <QuestionBox qid={id} />
                   </li>
                 ))
-              : props.noAnswer.map((id) => (
+              : noAnswer.map((id) => (
                   <li key={id}>
-                    <QuestionBox id={id} />
+                    <QuestionBox qid={id} />
                   </li>
                 ))}
           </ul>
@@ -56,19 +69,4 @@ function Home(props) {
   );
 }
 
-function mapStateToProps({ questions, users, authedUser }) {
-  const user = users[authedUser];
-
-  const question = Object.keys(user.answers).sort(
-    (a, b) => questions[b].timestamp - questions[a].timestamp
-  );
-
-  return {
-    Answered: question,
-    noAnswer: Object.keys(questions)
-      .filter((question2) => question.indexOf(question2) < 0)
-      .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
-  };
-}
-
-export default connect(mapStateToProps)(Home);
+export default Home;

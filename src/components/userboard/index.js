@@ -1,9 +1,12 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { formatLeaderboard } from "../../data/api";
 
-function userboard(props) {
-  const user = props.user;
+function useUserboard({id}) {
+  const users = useSelector((state) => state.users);
+  
+  const userId = users[id];
+  const user = formatLeaderboard(userId);
   const { name, avatarURL, answer, questions } = user;
   const overall = [answer+questions];
   return (
@@ -23,12 +26,4 @@ function userboard(props) {
   );  
 }
 
-function mapStateToProps({ users }, { id }) {
-  const user = users[id];
-
-  return {
-    user: formatLeaderboard(user),
-  };
-}
-
-export default connect(mapStateToProps)(userboard);
+export default useUserboard;

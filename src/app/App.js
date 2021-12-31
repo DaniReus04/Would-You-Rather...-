@@ -9,12 +9,16 @@ import Question from "../pages/questionPage";
 import PageNotFound from "../pages/404";
 import { handleInitialData } from "../actions/shared";
 import { useEffect } from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-function App({ authedUser }) {
+function App() {
+
   useEffect(() => {
     store.dispatch(handleInitialData());
   });
+
+  const authedUser = useSelector((state) => state.authedUser);
+
   return (
     <>
       {!authedUser ? (
@@ -38,10 +42,4 @@ function App({ authedUser }) {
   );
 }
 
-function mapStateToProps({ authedUser }) {
-  return {
-    authedUser,
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

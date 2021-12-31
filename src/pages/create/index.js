@@ -1,19 +1,20 @@
 import { useState } from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { newQuestion } from "../../actions/questions";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 import Header from "../../components/header";
 
-function useCreate(props) {
+function useCreate() {
   const [create, setCreate] = useState(false);
+  const authedUser = useSelector((state) => state.authedUser);
 
   const dispatch = useDispatch();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const author = props.authedUser;
+    const author = authedUser;
     const optionOneText = e.target["optionOne"]["value"];
     const optionTwoText = e.target["optionTwo"]["value"];
 
@@ -70,8 +71,4 @@ function useCreate(props) {
   );
 }
 
-function mapStateToProps({ authedUser }) {
-  return { authedUser };
-}
-
-export default connect(mapStateToProps)(useCreate);
+export default useCreate;

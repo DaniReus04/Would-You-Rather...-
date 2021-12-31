@@ -1,10 +1,14 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { formatQuestion } from "../../data/api";
 import { Link } from "react-router-dom";
 
-function useQuestionBox(props) {
-  const question = props.question;
+function useQuestionBox({qid}) {
+  const questions = useSelector((state) => state.questions);
+  const users = useSelector((state) => state.users);
+
+  const questionId = questions[qid];
+  const question = formatQuestion(questionId, users[questionId.author]);
 
   const { name, avatarURL, textOne, id } = question;
 
@@ -38,12 +42,4 @@ function useQuestionBox(props) {
   );
 }
 
-function mapStateToProps({ questions, users }, { id }) {
-  const question = questions[id];
-
-  return {
-    question: formatQuestion(question, users[question.author]),
-  };
-}
-
-export default connect(mapStateToProps)(useQuestionBox);
+export default useQuestionBox;
