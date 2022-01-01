@@ -6,6 +6,7 @@ import Leaderboard from "../pages/leaderboard";
 import LogIn from "../pages/logIn";
 import Home from "../pages/home";
 import Question from "../pages/questionPage";
+import Header from "../components/header";
 import PageNotFound from "../pages/404";
 import { handleInitialData } from "../actions/shared";
 import { useEffect } from "react";
@@ -27,6 +28,7 @@ function App() {
         <Router>
           <Fragment>
             <div className="min-h-screen bg-zinc-900">
+              <Header/>
               <Routes>
                 <Route path="/" exact element={<Home />} />
                 <Route path="/add" element={<Create />} />

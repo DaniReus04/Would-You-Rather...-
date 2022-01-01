@@ -5,7 +5,6 @@ import { useParams, Link } from "react-router-dom";
 import { newAnswer } from "../../actions/questions";
 import Loading from "../../components/loading";
 import PageNotFound from "../404";
-import Header from "../../components/header";
 
 function useQuestionPage() {
   const { id } = useParams();
@@ -57,7 +56,6 @@ function useQuestionPage() {
 
   return (
     <>
-      <Header />
       <div className="grid items-start justify-center py-40">
         <div className="bg-neutral-100 px-4 py-4 rounded-xl shadow-md shadow-white">
           <>
